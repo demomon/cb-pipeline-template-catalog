@@ -1,7 +1,7 @@
 version: 1
 type: pipeline-template
 templateType: MULTIBRANCH
-name: javaMavenSimple
+name: javaMavenMultibranch
 parameters:
   - name: mavenAdditionalTargets
     type: string
