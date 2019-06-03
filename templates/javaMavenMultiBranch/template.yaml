@@ -1,14 +1,23 @@
 version: 1
 type: pipeline-template
 templateType: MULTIBRANCH
-name: javaMavenMultibranch
+name: javaMavenSimple
 parameters:
   - name: mavenAdditionalTargets
     type: string
     displayName: Additional Maven build targets
+  - name: repoName
+    type: string
+    displayName: GitHub repository name
+  - name: repoOwner
+    type: string
+    displayName: GitHub repository owner
+  - name: gitCredentialsId
+    type: credentials
+    displayName: CredentialsID for GitHub 
 multibranch:
   branchSource:
     github:
-      repoOwner: joostvdg
+      repoOwner: ${repoOwner}
       repository: ${repoName}
-      credentialsId: github-token
+      credentialsId: ${gitCredentialsId}
