@@ -18,6 +18,14 @@ pipeline {
                 echo 'Test'
             }
         }
+        stage('Staging') {
+            when {
+                branch 'staging'
+            }
+            steps {
+                echo 'release'
+            }
+        }
         stage('Release') {
             when {
                 branch 'master'
