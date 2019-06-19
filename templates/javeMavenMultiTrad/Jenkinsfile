@@ -1,0 +1,35 @@
+pipeline {
+    options {
+        buildDiscarder logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '5', numToKeepStr: '5')
+        timeout(15)
+    }
+    agent any
+    environment {
+        MAVEN_ADDITIONAL_TARGETS = "${mavenAdditionalTargets}"
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'echo ${MAVEN_ADDITIONAL_TARGETS}'
+            }
+        }
+        stage('Test 2') {
+            steps {
+                echo 'Test'
+            }
+        }
+        stage('Release') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo 'release'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Always'
+        }
+    }
+}
