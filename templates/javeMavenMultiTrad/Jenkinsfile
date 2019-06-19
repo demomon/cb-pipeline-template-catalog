@@ -6,6 +6,7 @@ pipeline {
     agent any
     environment {
         MAVEN_ADDITIONAL_TARGETS = "${mavenAdditionalTargets}"
+        OTHER_PARAM = "${otherParam}"
     }
     stages {
         stage('Test') {
@@ -15,7 +16,7 @@ pipeline {
         }
         stage('Test 2') {
             steps {
-                echo 'Test'
+                sh 'echo ${OTHER_PARAM}'
             }
         }
         stage('Staging') {
