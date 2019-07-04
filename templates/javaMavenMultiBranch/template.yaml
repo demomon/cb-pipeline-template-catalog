@@ -6,6 +6,9 @@ parameters:
   - name: mavenAdditionalTargets
     type: string
     displayName: Additional Maven build targets
+  - name: someOtherParameter
+    type: string
+    displayName: Additional parameter for demo
   - name: repoName
     type: string
     displayName: GitHub repository name
