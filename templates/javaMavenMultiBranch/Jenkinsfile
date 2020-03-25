@@ -23,14 +23,6 @@ pipeline {
                 sh 'env'
             }
         }
-        stage('Checkout') {
-            steps {
-                script {
-                    scmVars = checkout scm
-                }
-                echo "scmVars=${scmVars}"
-            }
-        }
         stage('Build') {
             steps {
                 container('maven') {
