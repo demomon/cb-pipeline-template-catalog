@@ -6,9 +6,10 @@ parameters:
   - name: mavenAdditionalTargets
     type: string
     displayName: Additional Maven build targets
-  - name: someOtherParameter
+  - name: agentYaml
     type: string
-    displayName: Additional parameter for demo
+    displayName: Yaml file for agent
+    defaultValue: maven-jdk8-cache.yaml
   - name: repoName
     type: string
     displayName: GitHub repository name
