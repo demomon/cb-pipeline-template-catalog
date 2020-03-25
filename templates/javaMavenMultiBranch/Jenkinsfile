@@ -50,9 +50,5 @@ spec:
             }
         }
     }
-    post {
-        always {
-            cleanWs()
-        }
-    }
+
 }
