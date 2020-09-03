@@ -1,7 +1,7 @@
-version: 1
 type: pipeline-template
-templateType: MULTIBRANCH
+version: 1
 name: javaMavenMultibranch
+templateType: MULTIBRANCH
 parameters:
   - name: mavenAdditionalTargets
     type: string
@@ -25,4 +25,4 @@ multibranch:
       repoOwner: ${repoOwner}
       repository: ${repoName}
       credentialsId: ${gitCredentialsId}
-  markerfile: catalog.properties
+  markerFile: catalog.properties
