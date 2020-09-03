@@ -25,3 +25,4 @@ multibranch:
       repoOwner: ${repoOwner}
       repository: ${repoName}
       credentialsId: ${gitCredentialsId}
+  markerfile: catalog.properties
