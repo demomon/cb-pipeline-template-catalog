@@ -13,13 +13,13 @@ pipeline {
   agent {
     kubernetes {
       defaultContainer 'maven'
-        yaml libraryResource("${props.agentyaml}")
+        yaml loadPodTemplateYamls()
     }
   }
   stages {
       stage('Test') {
           steps {
-              sh 'env'
+              println "Props: $props"
           }
       }
       stage('Build') {
