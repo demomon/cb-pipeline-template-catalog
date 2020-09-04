@@ -1,3 +1,4 @@
+props = readProperties file:'catalog.properties'
 pipeline {
   options {
     buildDiscarder logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '5', numToKeepStr: '5')
@@ -14,7 +15,6 @@ pipeline {
   }
   environment {
       MAVEN_ADDITIONAL_TARGETS = "${mavenAdditionalTargets}"
-      props = readProperties file:'catalog.properties'
   }
   stages {
       stage('Test') {
