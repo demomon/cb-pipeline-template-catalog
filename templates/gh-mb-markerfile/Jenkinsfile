@@ -1,4 +1,3 @@
-props = readProperties file:'catalog.properties'
 pipeline {
   options {
     buildDiscarder logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '5', numToKeepStr: '5')
@@ -7,14 +6,15 @@ pipeline {
   libraries {
     lib('jpl-podtemplates@master')
   }
+  environment {
+    MAVEN_ADDITIONAL_TARGETS = "${mavenAdditionalTargets}"
+    props = readProperties file:'catalog.properties'
+  }
   agent {
     kubernetes {
       defaultContainer 'maven'
         yaml libraryResource("${props.agentyaml}")
     }
-  }
-  environment {
-      MAVEN_ADDITIONAL_TARGETS = "${mavenAdditionalTargets}"
   }
   stages {
       stage('Test') {
