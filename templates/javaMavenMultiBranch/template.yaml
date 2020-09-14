@@ -12,7 +12,7 @@ parameters:
     defaultValue: maven-jdk8-cache.yaml
   - name: scanRepositoryInterval
     type: string
-    displayName: Scan Repository Interval (# + type: 2 hours)
+    displayName: Scan Repository Interval (# + type. 2 hours)
     defaultValue: 2 hours
   - name: repoName
     type: string
