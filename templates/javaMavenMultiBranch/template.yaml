@@ -29,4 +29,5 @@ multibranch:
       repoOwner: ${repoOwner}
       repository: ${repoName}
       credentialsId: ${gitCredentialsId}
+      includes: master
   scanRepositoryInterval: ${scanRepositoryInterval}
