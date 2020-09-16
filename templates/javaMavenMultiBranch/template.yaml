@@ -29,5 +29,6 @@ multibranch:
       repoOwner: ${repoOwner}
       repository: ${repoName}
       credentialsId: ${gitCredentialsId}
-      includes: master
+      traits: 
+        headRegexFilter: master
   scanRepositoryInterval: ${scanRepositoryInterval}
