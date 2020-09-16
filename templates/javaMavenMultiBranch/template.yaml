@@ -30,5 +30,6 @@ multibranch:
       repository: ${repoName}
       credentialsId: ${gitCredentialsId}
       traits: 
-        headRegexFilter: master
+        - headRegexFilter: 
+          regex: master
   scanRepositoryInterval: ${scanRepositoryInterval}
