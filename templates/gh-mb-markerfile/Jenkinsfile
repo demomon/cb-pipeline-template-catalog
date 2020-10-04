@@ -1,0 +1,33 @@
+pipeline {
+  options {
+    buildDiscarder logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '5', numToKeepStr: '5')
+    timeout(15)
+  }
+  libraries {
+    lib('jpl-podtemplates@master')
+  }
+  environment {
+    MAVEN_ADDITIONAL_TARGETS = "${mavenAdditionalTargets}"
+    props = readProperties file:'catalog.properties'
+  }
+  agent {
+    kubernetes {
+      defaultContainer 'maven'
+        yaml loadPodTemplateYamls()
+    }
+  }
+  stages {
+      stage('Test') {
+          steps {
+              println "Props: $props"
+          }
+      }
+      stage('Build') {
+          steps {
+              container('maven') {
+                  sh 'mvn clean verify -C -e --show-version'
+              }
+          }
+      }
+  }
+}

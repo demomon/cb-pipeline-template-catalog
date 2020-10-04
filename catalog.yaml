@@ -1,5 +1,5 @@
 version: 1
 type: pipeline-template-catalog
 
-name: joostvdgCatalog
-displayName: Shared Template Catalog by Joost van der Griendt
+name: joostvdgCatalogV2
+displayName: Shared Template Catalog by Joost van der Griendt V2
